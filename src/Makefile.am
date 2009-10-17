@@ -1,5 +1,6 @@
 MAINTAINERCLEANFILES = Makefile.in
 MODULE = wizard
+MODULE_ARCH="$host_os-$host_cpu-$release"
 
 AM_CFLAGS = -Wall @ENLIGHTENMENT_CFLAGS@
 
