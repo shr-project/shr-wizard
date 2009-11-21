@@ -1,0 +1,3 @@
+#!/usr/bin/env python
+import elementary
+print "Welcome in SHR Wizard!"
