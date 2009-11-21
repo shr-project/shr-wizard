@@ -1,3 +1,19 @@
 #!/usr/bin/env python
 import elementary
-print "Welcome in SHR Wizard!"
+print "SHR Wizard"
+
+def destroy(*args,**kwargs):
+  print 'kabum!'
+  elementary.exit()
+
+elementary.init()
+win = elementary.Window('shrwizard',0);
+bg = elementary.Background(win)
+bg.show()
+win.title_set('Wizard')
+win.destroy = destroy
+win.show()
+win.resize_object_add(bg)
+
+elementary.run()
+elementary.shutdown()
