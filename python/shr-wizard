@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 import elementary
 import dbus, e_dbus
+from gettext import Catalog
+
+try:
+  cat = Catalog("shr-wizard")
+  _ = cat.gettext
+except IOError:
+  _ = lambda x: x
 
 print "SHR Wizard"
 
@@ -10,15 +17,15 @@ def destroy(*args,**kwargs):
 
 def update_bottom():
   if page==len(pages)-1:
-    next.label_set('Finish')
+    next.label_set(_('Finish'))
   else:
-    next.label_set('Next')
+    next.label_set(_('Next'))
 
   if page==0:
     prev.disabled_set(True)
   else:
     prev.disabled_set(False)
-  prev.label_set('Previous')
+  prev.label_set(_('Previous'))
 
 def prev_page(*args, **kargs):
   global page
@@ -127,13 +134,13 @@ prev = elementary.Button(inwin)
 prev.disabled_set(True)
 prev.size_hint_align_set(-1.0, 0.0)
 prev.size_hint_weight_set(1.0, 0.0)
-prev.label_set('Previous')
+prev.label_set(_('Previous'))
 prev.show()
 prev.clicked = prev_page
 bottom.pack_start(prev)
 
 next = elementary.Button(inwin)
-next.label_set('Next')
+next.label_set(_('Next'))
 next.size_hint_align_set(-1.0, 0.0)
 next.size_hint_weight_set(1.0, 0.0)
 next.show()
