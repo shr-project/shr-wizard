@@ -2,5 +2,8 @@
 #define LOCATIONS_H
 /* hardcoding: simple, fast, easy and works ;p 
  * (same applies to ugly hacks) */
-#define WIZARD_LAUNCH_CMD "python @DATADIR@/shr-wizard/shr-wizard.py &"
+#define	PYTHON_PATH "/usr/bin/python"
+#define WIZARD_PATH "@DATADIR@/shr-wizard/shr-wizard.py &"
+#define WIZARD_LAUNCH_CMD PYTHON_PATH " " WIZARD_PATH
+
 #endif
