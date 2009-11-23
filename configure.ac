@@ -11,12 +11,13 @@ AC_STDC_HEADERS
 AC_PROG_LIBTOOL
 
 PKG_CHECK_MODULES(ENLIGHTENMENT, enlightenment)
-AC_CHECK_LIB(dl, dlopen, dlopen_libs=-ldl)
+AC_SUBST(DATADIR, $datadir)
 
 AC_OUTPUT([
 Makefile
 data/Makefile
 src/Makefile
-src/page_030.c
+python/Makefile
+src/locations.h
 ])
 
