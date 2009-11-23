@@ -35,9 +35,9 @@ def prev_page(*args, **kargs):
 
 def next_page(*args, **kargs):
   global page
-  pageMods[page].wizardClose()
-  page = page + 1
-  render_page(page)
+  if pageMods[page].wizardClose():
+    page = page + 1
+    render_page(page)
 
 def render_page(i):
   global pageMods
