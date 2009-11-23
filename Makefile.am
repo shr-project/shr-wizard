@@ -1,4 +1,4 @@
-SUBDIRS = src data
+SUBDIRS = src data python
 
 ACLOCAL_AMFLAGS = -I m4
 
