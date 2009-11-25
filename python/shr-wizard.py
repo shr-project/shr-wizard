@@ -3,6 +3,8 @@ import elementary
 import dbus, e_dbus
 from gettext import Catalog
 
+pages = ['shr_phoneutils.Phoneutils', 'shr_gprs.Gprs']
+
 try:
   cat = Catalog("shr-wizard")
   _ = cat.gettext
@@ -21,7 +23,7 @@ def update_bottom():
   else:
     next.label_set(_('Next'))
 
-  if page==0:
+  if page==-1:
     prev.disabled_set(True)
   else:
     prev.disabled_set(False)
@@ -35,7 +37,7 @@ def prev_page(*args, **kargs):
 
 def next_page(*args, **kargs):
   global page
-  if pageMods[page].wizardClose():
+  if page==-1 or pageMods[page].wizardClose():
     page = page + 1
     render_page(page)
 
@@ -142,11 +144,13 @@ next.show()
 next.clicked = next_page
 bottom.pack_end(next)
 
-page = 0
+page = -1
 pageMods = []
-pages = ['shr_phoneutils.Phoneutils', 'shr_gprs.Gprs']
-render_page(page)
+
+wel = elementary.AnchorBlock(pager)
+wel.text_set(_('<b>Welcome to SHR Wizard!</b><br><br>This is a first-run configuration wizard, used to get the most important informations needed by SHR.<br><br><b>NOTE:</b> You can also adjust all of those settings later in SHR Settings.'))
+wel.show()
+pager.content_push(wel)
 
 elementary.run()
 elementary.shutdown()
-
