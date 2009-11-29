@@ -99,7 +99,7 @@ win = elementary.Window('shrwizard',0);
 bg = elementary.Background(win)
 bg.show()
 win.title_set('Wizard')
-win.destroy = destroy
+win._callback_add('destroy', destroy)
 win.show()
 win.resize_object_add(bg)
 win.fullscreen_set(True)
@@ -133,7 +133,7 @@ prev.size_hint_align_set(-1.0, 0.0)
 prev.size_hint_weight_set(1.0, 0.0)
 prev.label_set(_('Previous'))
 prev.show()
-prev.clicked = prev_page
+prev._callback_add('clicked', prev_page)
 bottom.pack_start(prev)
 
 next = elementary.Button(inwin)
@@ -141,7 +141,7 @@ next.label_set(_('Next'))
 next.size_hint_align_set(-1.0, 0.0)
 next.size_hint_weight_set(1.0, 0.0)
 next.show()
-next.clicked = next_page
+next._callback_add('clicked', next_page)
 bottom.pack_end(next)
 
 page = -1
