@@ -99,7 +99,7 @@ win = elementary.Window('shrwizard',0);
 bg = elementary.Background(win)
 bg.show()
 win.title_set('Wizard')
-win._callback_add('destroy', destroy)
+win.callback_destroy_add(destroy)
 win.show()
 win.resize_object_add(bg)
 win.fullscreen_set(True)
