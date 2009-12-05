@@ -1,7 +1,7 @@
 MAINTAINERCLEANFILES = Makefile.in
 MODULE = wizard
 #manual hack until I found out how to take e's release version
-release=ver-pre-svn-05
+release=@E_VERSION@
 MODULE_ARCH="$(host_os)-$(host_cpu)-$(release)"
 
 AM_CFLAGS = -Wall @ENLIGHTENMENT_CFLAGS@

@@ -12,6 +12,8 @@ AC_PROG_LIBTOOL
 
 PKG_CHECK_MODULES(ENLIGHTENMENT, enlightenment)
 AC_SUBST(DATADIR, $datadir)
+AC_SUBST(BINDIR, $bindir)
+AC_SUBST(E_VERSION, `pkg-config --variable=release enlightenment`)
 
 AC_OUTPUT([
 Makefile
