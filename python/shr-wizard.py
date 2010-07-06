@@ -81,6 +81,7 @@ def render_page(i):
 
       cont.size_hint_align_set(-1.0, -1.0)
       cont.size_hint_weight_set(1.0, 1.0)
+      scr.policy_set(0, 1)
       scr.content_set(cont)
       scr.bounce_set(False, False)
       scr.show()
