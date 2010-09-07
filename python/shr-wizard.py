@@ -3,7 +3,7 @@ import elementary
 import dbus, e_dbus
 from gettext import Catalog
 
-pages = ['shr_phoneutils.Phoneutils', 'shr_gprs.Gprs', 'shr_passwd.Password']
+pages = ['shr_phoneutils.Phoneutils', 'shr_gprs.Gprs', 'shr_passwd.Password', 'shr_firmware.Firmware']
 
 try:
   cat = Catalog("shr-wizard")
