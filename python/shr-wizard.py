@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import elementary
 import dbus, e_dbus
 from gettext import Catalog
@@ -153,6 +154,12 @@ wel = elementary.AnchorBlock(pager)
 wel.text_set(_('<b>Welcome to SHR Wizard!</b><br><br>This is a first-run configuration wizard, used to get the most important informations needed by SHR.<br><br><b>NOTE:</b> You can also adjust all of those settings later in SHR Settings.'))
 wel.show()
 pager.content_push(wel)
+
+#small hacks needed to run after ~/.e creation
+os.system( "mkdir -p ~/.e/e/applications/startup/" )
+os.system( "echo shr_elm_softkey.desktop > ~/.e/e/applications/startup/.order" )
+os.system( "rm -rf ~/.e/e/appshadow/" )
+os.system( "ln -s /var/volatile/appshadow/ ~/.e/e/appshadow" )
 
 elementary.run()
 elementary.shutdown()
