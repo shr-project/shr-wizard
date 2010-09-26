@@ -24,14 +24,15 @@ def update_bottom():
     next.label_set(_('Next'))
 
   if page==-1:
-    prev.disabled_set(True)
+    prev.label_set(_('Exit Wizard'))
   else:
-    prev.disabled_set(False)
-  prev.label_set(_('Previous'))
+    prev.label_set(_('Previous'))
 
 def prev_page(*args, **kargs):
   global page
   page = page - 1
+  if page==-2:
+    destroy()
   pager.content_pop()
   update_bottom()
 
@@ -40,6 +41,7 @@ def next_page(*args, **kargs):
   if page==-1 or pageMods[page].wizardClose():
     page = page + 1
     render_page(page)
+  update_bottom()
 
 def render_page(i):
   global pageMods
@@ -129,10 +131,9 @@ bottom.show()
 box.pack_end(bottom)
 
 prev = elementary.Button(inwin)
-prev.disabled_set(True)
 prev.size_hint_align_set(-1.0, 0.0)
 prev.size_hint_weight_set(1.0, 0.0)
-prev.label_set(_('Previous'))
+prev.label_set(_('Exit Wizard'))
 prev.show()
 prev._callback_add('clicked', prev_page)
 bottom.pack_start(prev)
