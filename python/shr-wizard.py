@@ -158,6 +158,8 @@ pager.content_push(wel)
 #small hacks needed to run after ~/.e creation
 os.system( "mkdir -p ~/.e/e/applications/startup/" )
 os.system( "echo shr_elm_softkey.desktop > ~/.e/e/applications/startup/.order" )
+os.system( "shr_elm_softkey >/dev/null </dev/null &" )
+os.system( "mv ~/.e/e/appshadow/* /var/volatile/appshadow/" )
 os.system( "rm -rf ~/.e/e/appshadow/" )
 os.system( "ln -s /var/volatile/appshadow/ ~/.e/e/appshadow" )
 
