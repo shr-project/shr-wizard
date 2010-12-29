@@ -25,7 +25,7 @@ def update_bottom():
     next.label_set(_('Next'))
 
   if page==-1:
-    prev.label_set(_('Exit Wizard'))
+    prev.label_set(_('Exit wizard'))
   else:
     prev.label_set(_('Previous'))
 
@@ -39,7 +39,12 @@ def prev_page(*args, **kargs):
 
 def next_page(*args, **kargs):
   global page
-  if page==-1 or pageMods[page].wizardClose():
+  try:
+    if page==-1 or pageMods[page].wizardClose():
+      page = page + 1
+      render_page(page)
+  except:
+    # TODO: show error
     page = page + 1
     render_page(page)
   update_bottom()
