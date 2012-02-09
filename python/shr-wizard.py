@@ -20,14 +20,14 @@ def destroy(*args,**kwargs):
 
 def update_bottom():
   if page==len(pages)-1:
-    next.label_set(_('Finish'))
+    next.text_set(_('Finish'))
   else:
-    next.label_set(_('Next'))
+    next.text_set(_('Next'))
 
   if page==-1:
-    prev.label_set(_('Exit wizard'))
+    prev.text_set(_('Exit wizard'))
   else:
-    prev.label_set(_('Previous'))
+    prev.text_set(_('Previous'))
 
 def prev_page(*args, **kargs):
   global page
@@ -70,7 +70,7 @@ def render_page(i):
       bbox.show()
       header = elementary.Label(bbox)
       header.scale_set(1.4)
-      header.label_set(pageMod.wizard_name)
+      header.text_set(pageMod.wizard_name)
       header.show()
 
       anc = elementary.AnchorBlock(pager)
@@ -139,13 +139,13 @@ box.pack_end(bottom)
 prev = elementary.Button(inwin)
 prev.size_hint_align_set(-1.0, 0.0)
 prev.size_hint_weight_set(1.0, 0.0)
-prev.label_set(_('Exit Wizard'))
+prev.text_set(_('Exit Wizard'))
 prev.show()
 prev._callback_add('clicked', prev_page)
 bottom.pack_start(prev)
 
 next = elementary.Button(inwin)
-next.label_set(_('Next'))
+next.text_set(_('Next'))
 next.size_hint_align_set(-1.0, 0.0)
 next.size_hint_weight_set(1.0, 0.0)
 next.show()
