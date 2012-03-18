@@ -34,7 +34,7 @@ def prev_page(*args, **kargs):
   page = page - 1
   if page==-2:
     destroy()
-  pager.content_pop()
+  pager.item_pop()
   update_bottom()
 
 def next_page(*args, **kargs):
@@ -93,7 +93,7 @@ def render_page(i):
       scr.content_set(cont)
       scr.bounce_set(False, False)
       scr.show()
-      pager.content_push(bbox)
+      pager.item_simple_push(bbox)
     else:
       next_page()
 
@@ -122,7 +122,7 @@ box = elementary.Box(win)
 box.show()
 inwin.content_set(box)
 
-pager = elementary.Pager(inwin)
+pager = elementary.Naviframe(inwin)
 pager.size_hint_align_set(-1.0, -1.0)
 pager.size_hint_weight_set(1.0, 1.0)
 pager.show()
@@ -158,7 +158,7 @@ pageMods = []
 wel = elementary.Entry(pager)
 wel.text_set(_('<b>Welcome to SHR Wizard!</b><br><br>This is a first-run configuration wizard, used to get the most important informations needed by SHR.<br><br><b>NOTE:</b> You can also adjust all of those settings later in SHR Settings.'))
 wel.show()
-pager.content_push(wel)
+pager.item_simple_push(wel)
 
 #small hacks needed to run after ~/.e creation
 os.system( "mkdir -p ~/.e/e/applications/startup/" )
