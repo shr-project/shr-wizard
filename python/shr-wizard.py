@@ -73,7 +73,7 @@ def render_page(i):
       header.text_set(pageMod.wizard_name)
       header.show()
 
-      anc = elementary.AnchorBlock(pager)
+      anc = elementary.Entry(pager)
       anc.size_hint_align_set(-1.0, 1.0)
       anc.size_hint_weight_set(0.0, 0.0)
       anc.text_set(pageMod.wizard_description)
@@ -155,7 +155,7 @@ bottom.pack_end(next)
 page = -1
 pageMods = []
 
-wel = elementary.AnchorBlock(pager)
+wel = elementary.Entry(pager)
 wel.text_set(_('<b>Welcome to SHR Wizard!</b><br><br>This is a first-run configuration wizard, used to get the most important informations needed by SHR.<br><br><b>NOTE:</b> You can also adjust all of those settings later in SHR Settings.'))
 wel.show()
 pager.content_push(wel)
