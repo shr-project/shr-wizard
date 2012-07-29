@@ -130,7 +130,7 @@ box.pack_end(pager)
 
 bottom = elementary.Box(inwin)
 bottom.horizontal_set(True)
-bottom.homogenous_set(True)
+bottom.homogeneous_set(True)
 bottom.size_hint_align_set(-1.0, 0.0)
 bottom.size_hint_weight_set(1.0, 0.0)
 bottom.show()
